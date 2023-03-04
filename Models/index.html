@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HC3 Mix Score Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 60%;
+        }
+        button[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .scores {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .score {
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Content Detecter</h1>
+    </header>
+    <form method="post">
+        <label for="text">Enter text to score:</label>
+        <input type="text" name="text" id="text" placeholder="Enter text here">
+        <button type="submit" onclick="roundScore()">Get scores</button>
+    </form>
+    {% if h_score and chat_score %}
+    <div class="scores">
+        <div class="score">Human score: {{ h_score }}</span></div>
+        <div class="score">ChatGPT score: {{ chat_score }}</span></div>
+    </div>
+    {% endif %}
+</body>
+</html>
