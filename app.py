@@ -4,6 +4,7 @@ from flask import Flask
 from flask import request
 from flask import render_template
 from flask import redirect
+import json
 
 from models import model_ai_human
 
@@ -11,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-	return "<center> <h1> Paperday </h1> </center>"
+	return render_template('upload.html');
 
 
 # Handles the file upload and returns the response by analyzing the file.
@@ -41,7 +42,7 @@ def upload_file():
 
 			analysis_data = { 'ai_vs_human': ai_human_score }
 
-			return render_template('sample.html', wordList = list(analysis_data['ai_vs_human'].values()));
+			return render_template('pie-chart.html', ai = ai_human_score['ai'], human = ai_human_score['human']);
 
 	except KeyError or TypeError:
 		return "<h4> Failed to retrieve the information </h4>";
