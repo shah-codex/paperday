@@ -24,5 +24,9 @@ def calculate_ai_vs_human_score(input_text):
         #print("chat_score:", chat_score, type(chat_score))
         #h_score_new = float(round(float(h_score), 2))
         #chat_score_new = float(round(float(chat_score), 2))
+
+	chat_score = float(f'{chat_score:.4f}')
+	h_score = float(f'{h_score:.4f}')
+
 	return { 'ai': chat_score, 'human': h_score }
 
