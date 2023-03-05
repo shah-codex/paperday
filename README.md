@@ -38,12 +38,11 @@ The ```keys.py``` file will have the content as below.
     cd paperday
     python3 app.py
     
-visit ```http://localhost:5000/```
+    visit http://localhost:5000/ in your browser
+    
 ![image](https://user-images.githubusercontent.com/66596874/222943212-77c8a94e-2c26-4345-a7ba-0fd35a8d502a.png)
 
-upload file using the upload button after selecting the file.
 ![image](https://user-images.githubusercontent.com/66596874/222943269-19de5e8e-ef2b-4ee1-8a52-5fdfa0f6bab8.png)
 
-Decision graph of algorithm
 ![image](https://user-images.githubusercontent.com/66596874/222944351-e71657bc-241d-465c-9ba7-accd78ba9693.png)
 
