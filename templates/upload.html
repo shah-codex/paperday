@@ -54,7 +54,7 @@
         border: 2px solid blue;
         border-radius: 40px;
     }
-    /* .other-inner{
+    /* .inner2{
         background-color:white;
         width:75%;
         height: 285px;
@@ -99,7 +99,7 @@
 <body>
    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Tech-Tycoon</a>
+        <a class="navbar-brand" href="#">PaperDayk</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -122,23 +122,24 @@
     </nav>
     <div class="main">
         <div class="left">
-            <h1>Check your submission
+            <h1 style="color:blue;font-size: 50px;">Check your submission
                 readiness in minutes</h1>
-            <p>Check for key rejection parameters<br>
+            <p style="font-size:20px">Check for key rejection parameters<br>
                 Identify and improve problem areas<br>
                 Unlimited revisions and rechecks for FREE*</p>
         </div>
-
-		<form action = "http://localhost:5000/upload" method = "post" enctype="multipart/form-data">
+		<form method="post" enctype="multipart/form-data" action="http://localhost:5000/upload">
         <div class="outer">
             <div class="inner">
-                <label for="fileUpload">Upload file</label>
-                <input type="file" name="file" id="fileUpload" />
-				<input type="submit" value="Upload" />
+                <div class="inner2">
+                    <label for="fileUpload" style="font-size: 50px;color: blue;margin-top: 60px;">Upload file<br></label>
+<!--                    <input type="file" name="file" id="fileUpload" accept=".doc,.docx" style="font-size: 25px;color: blue;margin-left: 5px;">	-->
+                    <input type="file" name="file" id="file" style="font-size: 25px;color: blue;margin-left: 5px;">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit" style="margin-top: 20px;">
             </div>
         </div>
 		</form>
-
     </div>
     <div class="chart">
         <h1>Paperpal has you covered at every writing stage</h1>

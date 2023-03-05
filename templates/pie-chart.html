@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Show Data on Google Pie Chart using Python Flask</title>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Effort', 'Amount given'],
+          ['AI',  {{ ai }}],
+		  ['HUMAN', {{ human }}]
+        ]);
+
+        var options = {
+          pieHole: 0.5,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+		  sliceVisibilityThreshold: .2,
+		  backgroundColor:{'stroke': '#990000'}
+        };
+
+	{% if ai is defined and human is defined %}
+        var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+        chart.draw(data, options);
+	{% endif %}
+
+	{% if blured is defined and unblured is defined %}
+		var another = new google.visualization.PieChart(document.getElementById('donut_single-1'));
+		another.draw(data, options);
+	{% endif %}
+      }
+    </script>
+	<style>
+		.design {
+			display: flex;
+		}
+
+		.chart-container .chart-title {
+			align: left;
+		}
+	</style>
+</head>
+<body>
+	<center>
+	<div style="margin: 10px 0 0 10px;width: 1000px">
+		<h3>Show Data on Google Pie Chart using Python Flask</h3>
+		<div class="design">
+	{% if ai is defined and human is defined %}
+		<div class="chart-container">
+			<span class="chart-title" style="width: 100%;"> AI vs HUMAN Written Content </span>
+			<div id="donut_single" style="width: 900px; height: 500px;"></div>
+		</div>
+	{% endif %}
+	{% if blured is defined and unblured is defined %}
+		<div class="chart-container">
+			<span style="width: 100%;"> AI vs HUMAN Written Content </span>
+			<div id="donut_single-1" style="width: 900px; height: 500px;"></div>
+		</div>
+	{% endif %}
+		</div>
+	</div>
+	</center>
+</body>
+</html>
