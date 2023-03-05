@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-	return render_template('upload.html');
+	return render_template('index.html');
 
 
 # Handles the file upload and returns the response by analyzing the file.
@@ -27,22 +27,11 @@ def upload_file():
 			for line in uploaded_file:
 				text += line.decode('utf-8')
 
-			
-			# TODO [Future Feature]
-			# Convert the data taken from word document to text (string) format.
-			# 		Data should be in the following format
-			# 		{
-			#			aiVsHuman: { ai: x, human: y },
-			#			imagesBlured: { blured: x, unBlured: y },
-			#			...
-			#			...
-			#		}
-
 			ai_human_score = model_ai_human.calculate_ai_vs_human_score(text)
 
 			analysis_data = { 'ai_vs_human': ai_human_score }
 
-			return render_template('pie-chart.html', ai = ai_human_score['ai'], human = ai_human_score['human']);
+			return render_template('output.html', ai = ai_human_score['ai'], human = ai_human_score['human']);
 
 	except KeyError or TypeError:
 		return "<h4> Failed to retrieve the information </h4>";
