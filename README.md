@@ -1,5 +1,5 @@
 # paperday
-Allows you to visualize the research paper in terms of content written by the user and AI. 
+Manage your every research papers with paperday, A powerfull tool to visualize user written research paper with AI.
 
 ## Environment Setup
 **Library Requirements**
